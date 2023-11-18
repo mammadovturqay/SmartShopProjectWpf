@@ -1,0 +1,120 @@
+﻿<Page x:Class="SmartShopProject.Views.SmartShopPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SmartShopProject.Views"
+      mc:Ignorable="d" 
+      Title="SmartShopPageView" Background="Wheat" Height="805" Width="1531">
+
+    <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible">
+        <Grid>
+            <Grid.Background>
+                <ImageBrush ImageSource="../images/SmartShopUcun.jpg"/>
+            </Grid.Background>
+
+
+            <Grid.RowDefinitions >
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/> 
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Sol StackPanel - Ürün Listesi ve Sepet -->
+            <StackPanel Orientation="Vertical" Width="300" Margin="10">
+                <StackPanel Margin="0 0 0 10">
+                    <TextBlock Text="Search Product" />
+                    <TextBox Name="searchBox" Width="200"  />
+                </StackPanel>
+                <Button Content="Search" Width="80" Margin="10" Click="SearchButton_Click" />
+
+                <ListBox Name="productList" Height="300" BorderThickness="1" BorderBrush="Black" Foreground="Black" Background="Wheat">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border BorderThickness="1" BorderBrush="Gray" Margin="5">
+                                <StackPanel Orientation="Vertical" Margin="5">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                                    <TextBlock Text="{Binding Price}" />
+                                    <Button Content="Al" Click="BuyButton_Click" Tag="{Binding Price}" />
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <StackPanel Width="300">
+                    
+                    <TextBlock Text="Cek" FontWeight="Bold" Margin="10" Background="Wheat" FontStyle="Italic" Foreground="Black"
+                               />
+                    <ListBox Name="shoppingCart" Height="200" BorderThickness="1" BorderBrush="Black" Margin="10"
+                             FontStyle="Italic"
+                             FontSize="18"
+                             Background="Blue"
+                             Foreground="Black"
+                             />
+                    <TextBlock Name="totalPrice" Text="Qiymet: 0 Azn " FontWeight="Bold" HorizontalAlignment="Center" Background="Wheat"  FontStyle="Italic" Foreground="Black"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="5">
+                    
+
+                <Button Height="40" Width="100" Content="Back" Background="MintCream" Foreground="Black"
+                        VerticalAlignment="Stretch" Margin="10" Click="BackToUserLogin"/>
+
+                    <TextBlock Name="BalanceUser" Text="{Binding userBalanceAmount, StringFormat={}{0} Azn, RelativeSource={RelativeSource AncestorType={x:Type local:SmartShopPageView}}}" Foreground="Black" Background="Wheat" Width="100" Height="30"/>
+                    
+                </StackPanel>
+            </StackPanel>
+
+            <!-- Sağ StackPanel - Ürün Butonları -->
+            <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel Orientation="Vertical">
+                        <!-- İlk satır -->
+                        <StackPanel Orientation="Horizontal">
+                            <Button Width="150" Height="150" Margin="10">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="../images/koynek.jpeg" Stretch="Fill" />
+                                </Button.Background>
+                                <StackPanel VerticalAlignment="Bottom" Background="Transparent">
+                                    <TextBlock Text="Koynek qiymeti" HorizontalAlignment="Center" />
+                                    <TextBlock Text="50 Azn" FontWeight="Bold" HorizontalAlignment="Center" />
+                                    <Button Content="Al" Width="50" HorizontalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button Width="150" Height="150" Margin="10">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="../images/koynek.jpeg" Stretch="Fill" />
+                                </Button.Background>
+                                <StackPanel VerticalAlignment="Bottom" Background="Transparent">
+                                    <TextBlock Text="Koynek qiymeti" HorizontalAlignment="Center" />
+                                    <TextBlock Text="50 Azn" FontWeight="Bold" HorizontalAlignment="Center" />
+                                    <Button Content="Al" Width="50" HorizontalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+
+                            <Button Width="150" Height="150" Margin="10">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="../images/koynek.jpeg" Stretch="Fill" />
+                                </Button.Background>
+                                <StackPanel VerticalAlignment="Bottom" Background="Transparent">
+                                    <TextBlock Text="Koynek qiymeti" HorizontalAlignment="Center" />
+                                    <TextBlock Text="50 Azn" FontWeight="Bold" HorizontalAlignment="Center" />
+                                    <Button Content="Al" Width="50" HorizontalAlignment="Center" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+
+                        <!-- Diğer 4 satırı ve daha fazlasını eklemek için bu yapının kopyalarını oluşturabilirsiniz -->
+
+                    </StackPanel>
+                </ScrollViewer>
+                </StackPanel>
+
+
+        </Grid>
+    </ScrollViewer>
+</Page>

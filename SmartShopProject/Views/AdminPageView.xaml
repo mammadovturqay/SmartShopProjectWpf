@@ -1,0 +1,35 @@
+﻿<Page x:Class="SmartShopProject.Views.AdminPageView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SmartShopProject.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPageView" Background="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="4*"/>
+            
+        </Grid.ColumnDefinitions>
+       
+
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <Button Width="100" Height="50" Background="Black" Foreground="Red" Content="Back" Margin="10" FontSize="18" FontStyle="Italic" Click="back_buttonAdmin"/>
+            <Button Width="100" Height="50" Background="Black" Foreground="Red" Content="Musteriler" Margin="10" FontSize="18" FontStyle="Italic" Click="MusteriPageAdmin" />
+            <Button Width="100" Height="50" Background="Black" Foreground="Red" Content="Mallar" Margin="10" FontSize="18" FontStyle="Italic"  Click="MallarPageAdmin"/>
+            <Button Width="100" Height="50" Background="Black" Foreground="Red" Content="Ayarlar" Margin="10" FontSize="18" FontStyle="Italic" />
+        </StackPanel>
+
+        <Frame x:Name="frameMain" Grid.Column="1"/>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/adminPageUcun.png" Stretch="Fill"/>
+
+        </Grid.Background>
+
+
+    </Grid>
+</Page>
